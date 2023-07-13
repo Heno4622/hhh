@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>AMUR CHAIRS CHOOSE</title>
+    <style>
+        
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 10px;
+            
+        }
+        .image1{
+            z-index: 1;
+        }
+
+        .image1, .image2 {
+
+ 
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 2px solid #616467;
+            border-radius: 5%;
+        }
+
+        .name {
+            font-size: 32px;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            margin-top: 510px;
+            font-family: 'Abel';
+            font-weight: bold;
+        }
+
+        .buttons {
+            margin-top: 550px;
+            text-align: center;
+        }
+        .countminus, .countplus{
+            margin: 10px;
+            background-color: #616467;
+                    outline: none;
+                    cursor: pointer;
+                    font-size: 14px;
+                    line-height: 1;
+                    border-radius: 50px;
+                    transition-property: background-color,border-color,color,box-shadow,filter;
+                    transition-duration: .3s;
+                    border: 1px solid transparent;
+                    letter-spacing: 2px;
+                    
+                    text-transform: uppercase;
+                    white-space: normal;
+                    font-weight: 700;
+                    text-align: center;
+                    
+                    color: #616467;
+                    box-shadow: inset 0 0 0 2px #616467;
+                    background-color: transparent;
+                    height: 40px;
+                    width: 40px;
+        }
+        .count{
+            width: 30px;
+            border: 0;
+            font-size: 20px;
+            text-align: center;
+        }
+        .price{
+            margin-bottom: 2%;
+        }
+        .gin{
+            margin-top: 2%;
+            font-size: 20px;
+            color: #616467;
+            text-transform: uppercase;
+            white-space: normal;
+            margin-bottom: 0;
+        }
+        .price, .countPrice{
+            margin-top: 2%;
+            font-size: 30px;
+            color: #616467;
+            text-transform: uppercase;
+            white-space: normal;
+            
+        }
+        .btnclass{
+            margin: 10px;
+            outline: none;
+            cursor: pointer;
+            font-size: 14px;
+            line-height: 1;
+            border-radius: 500px;
+            transition-property: background-color,border-color,color,box-shadow,filter;
+            transition-duration: .3s;
+            border: 1px solid transparent;
+            letter-spacing: 2px;
+            min-width: 160px;
+            text-transform: uppercase;
+            white-space: normal;
+            font-weight: 700;
+            text-align: center;
+            padding: 16px 14px 18px;
+            color: #616467;
+            box-shadow: inset 0 0 0 2px #616467;
+            background-color: transparent;
+            height: 48px;
+            .btnclass:hover{
+                color: #fff;
+                background-color: #616467;
+            }
+        
+        
+                
+        }
+    </style>
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+</head>
+<body>
+
+    <!-- Создание 20 контейнеров -->
+    <div id="containerWrapper">
+            <div class="container">
+                <img class="image1" src='https://github.com/Heno4622/hhh/blob/main/color1/10000.png' alt="Изображение 1">
+                <img class="image2" src="https://github.com/Heno4622/hhh/blob/main/Legs/1leg/1.png" alt="Изображение 2">
+
+                <!-- Добавление имени под изображением -->
+                <div class="name">TEND</div>
+
+                <!-- Добавление кнопок -->
+                <div class="buttons">
+                    <button onclick="changeImageBack()" class="btnclass">ՄՈԴԵԼ << </button>
+                    <button onclick="changeImage()" class="btnclass"> >> ՄՈԴԵԼ </button><br>
+                    <button onclick="changeImage1Back()" class="btnclass">ՈՏՔ <<</button>
+                    <button onclick="changeImage1()" class="btnclass"> >> ՈՏՔ</button><br>
+                    <button onclick="changeColor()" class="btnclass">ՓՈԽԵԼ ԳՈՒՅՆԸ <<</button>
+                    <button onclick="changeColor1()" class="btnclass"> >> ՓՈԽԵԼ ԳՈՒՅՆԸ</button><br>
+                    <div style="margin-top: 10px; margin-right: 40px"> <a class="gin">ԳԻՆ`</a>  <a class="price">45000</a>
+                    <button onclick="countminus1()" class="countminus">-</button>
+                    <a class="count">4</a>
+                    <button onclick="countplus1()" class="countplus">+</button>
+                    <a class="countPrice">180000</a></div>
+                </div>
+                <script>
+                  var nameArr = ['TEND','DEIL','LOTOS','LOTA','JERRY','VITO','ADEO','ORSA','HORA','MIRRA','LOPE','UNIO','AVILA','VOX','RUBER','LARREN','DECIO','JUSTO','FIDO','LIDOR']
+                  var nameIndex = 0  
+                  var imageIndex = 10000
+                 var image = document.querySelector('.image1')
+                 var imageName = document.querySelector('.name')
+                 var imageSource =  1
+                 var price1 = document.querySelector('.price')
+                 var count = document.querySelector('.count')
+                 var countPrice = document.querySelector('.countPrice')
+                 var countminus = document.querySelector('.countminus')
+                 var countplus = document.querySelector('.countplus')
+                    function changeImage() {
+                        if (imageIndex === 10019 && nameIndex === 19) {
+                            imageIndex = 9999
+                            nameIndex = -1
+                        } 
+                        imageIndex = (imageIndex + 1);
+                        nameIndex = nameIndex + 1;
+                        price1.innerHTML = price[nameIndex]
+                        image.src = `https://github.com/Heno4622/hhh/blob/main/color${imageSource}\\${imageIndex}.png`;
+                        imageName.innerHTML = nameArr[nameIndex]
+                        priceEditing()
+                        countPriceEditing()
+                    }
+                    function changeImageBack(){
+                        if (imageIndex === 10000 && nameIndex === 0) {
+                            imageIndex = 10019; nameIndex = 19
+                    }
+                        imageIndex = (imageIndex-1)
+                        nameIndex = nameIndex - 1;
+                        price1.innerHTML = price[nameIndex]
+                        image.src = `https://github.com/Heno4622/hhh/blob/main/color${imageSource}\\${imageIndex}.png`
+                        imageName.innerHTML = nameArr[nameIndex]
+                        priceEditing()
+                        countPriceEditing()
+                    }
+                    var imageIndex1 = 1
+                    var image1source = 'https://github.com/Heno4622/hhh/blob/main/Legs/1leg'
+                    var image1 = document.querySelector('.image2')
+                    function changeImage1() {
+                        if (imageIndex1 === 9) imageIndex1 = 0
+                        imageIndex1 = (imageIndex1 + 1)
+                        image1.src = `${image1source}${imageIndex1}.png`;
+                        priceEditing()
+                        countPriceEditing()
+                    }
+                    function changeImage1Back(){
+                        if (imageIndex1 === 1) imageIndex1 = 7
+                        imageIndex1 = (imageIndex1 - 1)
+                        image1.src = `${image1source}${imageIndex1}.png`;
+                        priceEditing()
+                        countPriceEditing()
+                    }
+                    function changeColor(){
+                        if(imageSource === 14
+                    ) imageSource = 0 
+                     imageSource = imageSource + 1
+                     image.src = `https://github.com/Heno4622/hhh/blob/main/color${imageSource}\\${imageIndex}.png`;
+                     priceEditing()
+                     countPriceEditing()
+                    }
+                    function changeColor1(){
+                        if(imageSource === 1
+                    ) imageSource = 14 
+                     imageSource = imageSource - 1
+                     image.src = `https://github.com/Heno4622/hhh/blob/main/color${imageSource}\\${imageIndex}.png`;
+                     priceEditing()
+                     countPriceEditing()
+                    }
+                    var price = [45000,49000,49000,49000,49000,49000,49000,45000,49000,53000,43000,52000,49000,45000,49000,52000,44000,49000,46000,45000]
+                    function priceEditing(){
+                        if (imageIndex1 != 1) price1.innerHTML = price[nameIndex]+6000 
+                        else price1.innerHTML = price[nameIndex]
+                    }
+                    function countPriceEditing(){
+                        countPrice.innerHTML = +count.innerHTML * +price1.innerHTML
+                    }
+                    function countminus1(){
+                        count.innerHTML = count.innerHTML - 1
+                        if(count.innerHTML == 3) count.innerHTML = 4
+                        countPriceEditing()
+                    }
+                    function countplus1(){
+                        count.innerHTML = +count.innerHTML + 1
+                        countPriceEditing()
+                    }
+
+                  </script>
+            </div>
+        
+    </div>
+</body>
+</html>
